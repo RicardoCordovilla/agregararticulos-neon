@@ -1,5 +1,19 @@
-let db = JSON.parse(localStorage.getItem("db"))
-
+let db
+db = JSON.parse(localStorage.getItem("db"))
+if (!db) {
+    db = []
+}
+if (!db[currentIndexDb]) {
+    db.push({
+        imagen: '',
+        titulo: '',
+        descripcion: '',
+        sizes: [
+            { size: '', price: '' },
+        ],
+        tags: ['Fiestas', 'Cumpleaños', 'Eventos', 'Alquiler'],
+    })
+}
 
 // let db = [{
 //     imagen: 'happybirthday',
@@ -16,7 +30,7 @@ console.log(db)
 let currentIndexDb = 0
 
 const htmlDivs =
-`
+    `
 <div class="prices">
 <div class="">
     <span>Size</span>
@@ -51,8 +65,7 @@ document.getElementById('btnUpload').addEventListener('change', (e) => {
 
 btnBack.addEventListener('click', (e) => {
     form.reset()
-    if (!db[currentIndexDb]){
-
+    if (!db[currentIndexDb]) {
         db.push({
             imagen: '',
             titulo: '',
@@ -63,7 +76,7 @@ btnBack.addEventListener('click', (e) => {
             tags: ['Fiestas', 'Cumpleaños', 'Eventos', 'Alquiler'],
         })
     }
-    document.getElementById('pricesBxBx').innerHTML = htmlDivs    
+    document.getElementById('pricesBxBx').innerHTML = htmlDivs
     currentIndexDb--
     currentIndexDb = currentIndexDb < 1 ? 0 : currentIndexDb
     console.log(currentIndexDb)
@@ -74,10 +87,10 @@ btnBack.addEventListener('click', (e) => {
 
 btnNext.addEventListener('click', (e) => {
     form.reset()
-    document.getElementById('pricesBxBx').innerHTML = htmlDivs    
+    document.getElementById('pricesBxBx').innerHTML = htmlDivs
     if (db[currentIndexDb].titulo) currentIndexDb++
     // currentIndexDb = currentIndexDb <= db.length ? currentIndexDb + 1 : currentIndexDb
-    if (!db[currentIndexDb]){
+    if (!db[currentIndexDb]) {
 
         db.push({
             imagen: '',
@@ -108,7 +121,7 @@ function render() {
     console.log(db[currentIndexDb].sizes)
 
     db[currentIndexDb].tags.map(tag => {
-        form.tags.value += tag+','
+        form.tags.value += tag + ','
     })
 
     let htmlSizes = ''
