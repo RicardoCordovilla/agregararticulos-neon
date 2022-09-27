@@ -1,9 +1,9 @@
-let db
-db = JSON.parse(localStorage.getItem("db"))
-if (!db) {
-    db = []
+
+if(localStorage.getItem("db")){
+    db = JSON.parse(localStorage.getItem("db"))
 }
-if (!db[currentIndexDb]) {
+else {
+    db = []
     db.push({
         imagen: '',
         titulo: '',
@@ -13,6 +13,10 @@ if (!db[currentIndexDb]) {
         ],
         tags: ['Fiestas', 'Cumpleaños', 'Eventos', 'Alquiler'],
     })
+
+    console.log('db creada')
+    console.log(db)
+
 }
 
 // let db = [{
