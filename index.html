@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar articulos neonquito</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <form id="formulario">
+        <header>
+            <figure>
+                <img src="" alt="" id="imagen">
+                <input type="file" accept="image/*" id="btnUpload">
+                <span id="imagename"></span>
+            </figure>
+            <div class="info">
+                <span>Título:</span>
+                <input name="title" type="text" placeholder="Titulo" id="title">
+                <span>Descripción:</span>
+                <textarea name="description" id="" cols="" rows="2" placeholder="Descripción" id="description"></textarea>
+                <span>Tags:</span>
+                <textarea name="tags" id="" cols="" rows="2" placeholder="tags" id="tags"></textarea>
+            </div>
+            <div class="pricesBx" id="pricesBx">
+                <div id="pricesBxBx">
+                    <div class="prices">
+                        <div class="">
+                            <span>Size</span>
+                            <input type="text" name="size" id="size" placeholder="tamaño">
+                        </div>
+                        <div class="">
+                            <span>Precio</span>
+                            <input type="number" name="price" id="precio" placeholder="$$">
+                        </div>
+                    </div>
+                </div>
+ 
+                <button id="btnAdd">+</button>
+            </div>
+
+
+        </header>
+        <section class="catprices">
+
+        </section>
+        <div class="btns">
+            <button id="btnBack"><</button>
+            <button id="btnSave">SAVE</button>
+            <button id="btnNext">></button>
+        </div>
+    </form>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
