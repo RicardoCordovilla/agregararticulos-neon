@@ -51,6 +51,18 @@ document.getElementById('btnUpload').addEventListener('change', (e) => {
 
 btnBack.addEventListener('click', (e) => {
     form.reset()
+    if (!db[currentIndexDb]){
+
+        db.push({
+            imagen: '',
+            titulo: '',
+            descripcion: '',
+            sizes: [
+                { size: '', price: '' },
+            ],
+            tags: ['Fiestas', 'Cumpleaños', 'Eventos', 'Alquiler'],
+        })
+    }
     document.getElementById('pricesBxBx').innerHTML = htmlDivs    
     currentIndexDb--
     currentIndexDb = currentIndexDb < 1 ? 0 : currentIndexDb
@@ -65,7 +77,8 @@ btnNext.addEventListener('click', (e) => {
     document.getElementById('pricesBxBx').innerHTML = htmlDivs    
     if (db[currentIndexDb].titulo) currentIndexDb++
     // currentIndexDb = currentIndexDb <= db.length ? currentIndexDb + 1 : currentIndexDb
-    if (!db[currentIndexDb])
+    if (!db[currentIndexDb]){
+
         db.push({
             imagen: '',
             titulo: '',
@@ -75,6 +88,7 @@ btnNext.addEventListener('click', (e) => {
             ],
             tags: ['Fiestas', 'Cumpleaños', 'Eventos', 'Alquiler'],
         })
+    }
     console.log('currentIndexDb', currentIndexDb)
     console.log('db lenght', db.length)
     if (db[currentIndexDb].titulo && db[currentIndexDb].tags)
